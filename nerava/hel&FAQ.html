@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bantuan & FAQ – Nerava</title>
+    <style>
+        :root {
+            --nerava-purple: #7c3aed;
+            --nerava-purple-light: #ede9fe;
+            --nerava-dark: #1e1b4b;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --bg: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --radius: 16px;
+            --max-width: 800px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #faf5ff 0%, #f0f9ff 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            background: var(--bg);
+            max-width: var(--max-width);
+            width: 100%;
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.75rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--nerava-purple), #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        h2 {
+            color: var(--nerava-dark);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--nerava-purple-light);
+            letter-spacing: -0.3px;
+        }
+
+        .faq-item {
+            margin-bottom: 1.8rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--nerava-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .faq-question::before {
+            content: "❓";
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            padding-left: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer p {
+            margin-bottom: 0.8rem;
+        }
+
+        ul, ol {
+            margin: 0.5rem 0 1rem 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        strong {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .highlight {
+            background: var(--nerava-purple-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            color: var(--nerava-purple);
+        }
+
+        .note {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            color: #92400e;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border-radius: 14px;
+            padding: 1.8rem 1.5rem;
+            margin-top: 2.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .contact-card h3 {
+            margin-top: 0;
+            color: var(--nerava-dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .email-link {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.7rem 1.3rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        .email-link:hover {
+            border-color: var(--nerava-purple);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
+            color: var(--nerava-purple);
+        }
+
+        .email-link::before {
+            content: "✉️";
+            font-size: 1.2rem;
+        }
+
+        .footer-note {
+            margin-top: 2.5rem;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.8rem;
+        }
+
+        .footer-note span {
+            color: var(--nerava-purple);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.8rem 1.2rem;
+                border-radius: 12px;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">💜</span>
+                <span class="logo-text">Nerava</span>
+            </div>
+            <p class="subtitle">Pusat Bantuan & FAQ</p>
+        </div>
+
+        <!-- Daftar Isi Cepat -->
+        <div class="note">
+            <strong>🧭 Navigasi Cepat:</strong><br>
+            • <a href="#mulai">Memulai</a> &nbsp;|&nbsp;
+            • <a href="#transaksi">Transaksi</a> &nbsp;|&nbsp;
+            • <a href="#dompet">Dompet & Kategori</a> &nbsp;|&nbsp;
+            • <a href="#anggaran">Anggaran & Utang</a> &nbsp;|&nbsp;
+            • <a href="#backup">Backup & Ekspor</a> &nbsp;|&nbsp;
+            • <a href="#keamanan">Keamanan</a> &nbsp;|&nbsp;
+            • <a href="#premium">Premium</a>
+        </div>
+
+        <!-- Mulai -->
+        <h2 id="mulai">🚀 Memulai</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">Apakah saya perlu membuat akun untuk memakai Nerava?</div>
+            <div class="faq-answer">
+                <p>Tidak. <strong>Nerava tidak memerlukan akun atau pendaftaran sama sekali.</strong> Semua data tersimpan di perangkat Anda. Anda bisa langsung menambahkan dompet dan transaksi begitu aplikasi dibuka pertama kali.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Bagaimana cara menambah transaksi pertama saya?</div>
+            <div class="faq-answer">
+                <p>Dari layar <strong>Beranda</strong>, ketuk tombol <span class="highlight">+</span> (biasanya di pojok kanan bawah). Isi:</p>
+                <ul>
+                    <li><strong>Jumlah</strong> – nominal uang</li>
+                    <li><strong>Tipe</strong> – Pemasukan, Pengeluaran, atau Transfer</li>
+                    <li><strong>Dompet</strong> – pilih salah satu dompet yang sudah dibuat</li>
+                    <li><strong>Kategori</strong> – misal “Makanan”, “Gaji”, dll.</li>
+                    <li><strong>Tanggal</strong> – otomatis hari ini, bisa diubah</li>
+                </ul>
+                <p>Lalu simpan. Saldo dompet akan otomatis diperbarui.</p>
+            </div>
+        </div>
+
+        <!-- Transaksi -->
+        <h2 id="transaksi">💸 Transaksi</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">Apa itu transaksi transfer?</div>
+            <div class="faq-answer">
+                <p>Transfer memindahkan uang <strong>dari satu dompet ke dompet lain</strong> tanpa mengubah total kekayaan bersih. Misalnya dari dompet “Tunai” ke “Bank”. Transaksi ini tidak masuk ke pemasukan atau pengeluaran.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Bagaimana cara mengedit atau menghapus transaksi?</div>
+            <div class="faq-answer">
+                <p>Buka <strong>Riwayat Transaksi</strong>, cari transaksi yang diinginkan (bisa search/filter), lalu ketuk. Di layar detail ada tombol <strong>Edit</strong> dan <strong>Hapus</strong>. Penghapusan bersifat <em>soft delete</em> – data tidak benar-benar hilang dari database dan bisa dipulihkan jika diperlukan.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Apakah bisa membuat transaksi berulang (recurring)?</div>
+            <div class="faq-answer">
+                <p>Fitur <strong>transaksi berulang</strong> tersedia khusus untuk pengguna <strong>Premium</strong>. Anda bisa mengatur pengeluaran/pemasukan mingguan, bulanan, atau tahunan secara otomatis.</p>
+            </div>
+        </div>
+
+        <!-- Dompet & Kategori -->
+        <h2 id="dompet">👛 Dompet & Kategori</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">Berapa maksimal dompet yang bisa saya buat?</div>
+            <div class="faq-answer">
+                <p>Versi gratis: maksimal <strong>3 dompet</strong>. Pengguna Premium bisa membuat <strong>dompet tanpa batas</strong>.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Bagaimana menambah kategori baru?</div>
+            <div class="faq-answer">
+                <p>Buka menu <strong>Kategori</strong> (dari tab bawah atau samping). Ketuk <span class="highlight">+ Tambah Kategori</span>, beri nama, pilih ikon dan warna. Anda juga bisa mengedit atau menyembunyikan kategori bawaan. Versi gratis maksimal 15 kategori, Premium tak terbatas.</p>
+            </div>
+        </div>
+
+        <!-- Anggaran & Utang -->
+        <h2 id="anggaran">📊 Anggaran & Utang</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">Bagaimana cara membuat anggaran (budget)?</div>
+            <div class="faq-answer">
+                <p>Buka <strong>Anggaran</strong>, pilih <span class="highlight">+ Baru</span>. Tentukan:</p>
+                <ul>
+                    <li>Kategori yang ingin dibatasi (contoh: “Makan di Luar”)</li>
+                    <li>Jumlah maksimal per bulan</li>
+                    <li>Periode (bulanan default)</li>
+                </ul>
+                <p>Nerava akan menampilkan progres pemakaian dan memberi notifikasi jika hampir melampaui batas (notifikasi lokal, tidak perlu internet).</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Apakah saya bisa mencatat utang/piutang?</div>
+            <div class="faq-answer">
+                <p>Ya. Fitur <strong>Utang & Piutang</strong> memungkinkan Anda mencatat siapa yang berutang atau Anda berutang kepada siapa, lengkap dengan tanggal jatuh tempo. Aplikasi akan mengingatkan Anda jika mendekati tenggat. Fitur ini tersedia di v1.1+ (saat ini mungkin masih dalam pengembangan, pantau pembaruan).</p>
+            </div>
+        </div>
+
+        <!-- Backup & Ekspor -->
+        <h2 id="backup">💾 Backup & Ekspor</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">Bagaimana cara mencadangkan data saya?</div>
+            <div class="faq-answer">
+                <p>Buka <strong>Pengaturan</strong> &gt; <strong>Backup & Pulihkan</strong> &gt; <strong>Buat Cadangan</strong>. Aplikasi akan membuat file <code>.nerava</code> (sebenarnya ZIP) yang berisi semua data Anda. Simpan di penyimpanan lokal atau bagikan ke cloud/email.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Apakah cadangan bisa dipulihkan ke ponsel baru?</div>
+            <div class="faq-answer">
+                <p>Tentu. Instal Nerava di perangkat baru, buka <strong>Backup & Pulihkan</strong>, pilih file cadangan yang sudah Anda simpan, lalu <strong>Pulihkan</strong>. Pastikan versi aplikasi sama atau lebih baru. Untuk cadangan terenkripsi (Premium), Anda harus memasukkan kata sandi terlebih dahulu.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Bagaimana cara ekspor transaksi ke Excel/CSV?</div>
+            <div class="faq-answer">
+                <p>Buka menu <strong>Ekspor</strong>. Pilih format <strong>CSV</strong> (gratis) atau <strong>Excel</strong> (Premium). Tentukan rentang tanggal, lalu simpan atau bagikan file. Data yang diekspor bisa dibuka di Microsoft Excel, Google Sheets, atau aplikasi spreadsheet lain.</p>
+            </div>
+        </div>
+
+        <!-- Keamanan -->
+        <h2 id="keamanan">🔐 Keamanan</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">Apakah aplikasi ini mengirim data saya ke internet?</div>
+            <div class="faq-answer">
+                <p><strong>Tidak.</strong> Nerava bekerja sepenuhnya offline. Tidak ada data keuangan yang dikirim ke server mana pun. Koneksi internet hanya dipakai untuk iklan (jika versi gratis) dan pembelian Premium. Tidak ada sinkronisasi cloud tanpa izin Anda.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Bagaimana mengaktifkan kunci PIN atau sidik jari?</div>
+            <div class="faq-answer">
+                <p>Masuk ke <strong>Pengaturan</strong> &gt; <strong>Keamanan</strong>. Aktifkan <strong>Kunci Aplikasi</strong>, pilih metode: <strong>PIN 4 digit</strong> atau <strong>Biometrik</strong> (sidik jari / Face ID). Anda juga bisa mengatur <strong>waktu kunci otomatis</strong> (1 menit, 5 menit, dll).</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Apa yang terjadi jika saya lupa PIN?</div>
+            <div class="faq-answer">
+                <p>Untuk alasan keamanan, <strong>kami tidak menyimpan PIN Anda</strong> dan tidak bisa meresetnya. Jika lupa, Anda harus menghapus data aplikasi (melalui setelan Android/iOS) dan memulihkan dari cadangan jika tersedia. Pastikan Anda menyimpan cadangan secara berkala.</p>
+            </div>
+        </div>
+
+        <!-- Premium -->
+        <h2 id="premium">⭐ Premium</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">Apa saja keuntungan Premium?</div>
+            <div class="faq-answer">
+                <ul>
+                    <li>Dompet, kategori, anggaran <strong>tak terbatas</strong></li>
+                    <li>Transaksi berulang otomatis</li>
+                    <li>Ekspor Excel dengan laporan</li>
+                    <li>Cadangan terenkripsi AES-256</li>
+                    <li>Pengingat cadangan berkala</li>
+                    <li>Analitik lanjutan + tren 6 bulan</li>
+                    <li>Tema kustom</li>
+                    <li><strong>Tanpa iklan</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Bagaimana cara berlangganan Premium?</div>
+            <div class="faq-answer">
+                <p>Buka menu <strong>Premium</strong> (ikon mahkota). Pilih paket: <strong>Bulanan</strong>, <strong>Tahunan</strong>, atau <strong>Seumur Hidup</strong>. Pembayaran diproses oleh Google Play Store / App Store. Setelah berhasil, semua fitur premium langsung aktif.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Apakah pembelian Premium bisa dipulihkan jika ganti HP?</div>
+            <div class="faq-answer">
+                <p>Ya. Selama Anda menggunakan <strong>akun Google/Apple yang sama</strong>, cukup buka menu Premium &gt; <strong>Pulihkan Pembelian</strong>. Langganan akan dikenali tanpa biaya tambahan.</p>
+            </div>
+        </div>
+
+        <!-- Kontak -->
+        <div class="contact-card">
+            <h3>📬 Masih butuh bantuan?</h3>
+            <p style="margin-bottom:1rem; color:#475569;">Tim dukungan kami siap membantu melalui email. Sertakan detail masalah atau pertanyaan Anda agar kami bisa merespons lebih cepat.</p>
+            <a href="mailto:fikrihabibie@proton.me" class="email-link">fikrihabibie@proton.me</a>
+            <p style="margin-top:0.8rem; font-size:0.85rem; color:#64748b;">Estimasi respons: 1–2 hari kerja</p>
+        </div>
+
+        <div class="footer-note">
+            © 2026 <span>Nerava</span> · Dibangun dengan ❤️ untuk pengguna yang peduli privasi
+        </div>
+    </main>
+</body>
+</html>
